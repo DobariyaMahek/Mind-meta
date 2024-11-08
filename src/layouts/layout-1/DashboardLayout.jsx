@@ -9,31 +9,28 @@ import LayoutBodyWrapper from './components/LayoutBodyWrapper';
 import LayoutSetting from '@/layouts/layout-parts/LayoutSetting'; // DASHBOARD LAYOUT BASED CONTEXT PROVIDER
 
 import LayoutProvider from './context/layoutContext';
+import Callmodelmain from '../../components/Callmodelmain';
 export default function DashboardLayoutV1({
   children
 }) {
   const downLg = useMediaQuery(theme => theme.breakpoints.down('lg'));
-  return <LayoutProvider>
-      {
-      /* CONDITIONALLY RENDER THE SIDEBAR */
-    }
+  return (
+    <LayoutProvider>
+      {/* <Callmodelmain /> */}
+
+      {/* CONDITIONALLY RENDER THE SIDEBAR */}
       {downLg ? <MobileSidebar /> : <DashboardSidebar />}
 
       <LayoutBodyWrapper>
-        {
-        /* DASHBOARD HEADER SECTION */
-      }
+        {/* DASHBOARD HEADER SECTION */}
         <DashboardHeader />
 
-        {
-        /* MAIN CONTENT RENDER SECTION */
-      }
+        {/* MAIN CONTENT RENDER SECTION */}
         {children || <Outlet />}
 
-        {
-        /* LAYOUT SETTING SECTION */
-      }
+        {/* LAYOUT SETTING SECTION */}
         <LayoutSetting />
       </LayoutBodyWrapper>
-    </LayoutProvider>;
+    </LayoutProvider>
+  );
 }

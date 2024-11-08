@@ -122,7 +122,7 @@ export default function UserList2PageView() {
             /* SEARCH BOX AREA */
           }
             <Box px={3}>
-              <SearchArea value={searchFilter} onChange={e => setSearchFilter(e.target.value)} gridRoute="/dashboard/user-grid-2" listRoute="/dashboard/user-list-2" />
+              <SearchArea value={searchFilter} onChange={e => setSearchFilter(e.target.value)} gridRoute="/dashboard/user-grid-2" listRoute="/dashboard/patient-list-2" />
             </Box>
 
             {

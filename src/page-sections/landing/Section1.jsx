@@ -29,13 +29,13 @@ const animated = keyframes`
 `; // STYLED COMPONENTS
 
 const MainTitle = styled(H1)(() => ({
-  background: `linear-gradient(300deg, #B83DDA 0%,#FB6186 25%, #B83DDA 50%, #FB6186 75%,#B83DDA 100%)`,
-  WebkitBackgroundClip: 'text',
-  backgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  textFillColor: 'transparent',
-  backgroundSize: '150% auto',
-  animation: `${shine} 6s ease-in-out infinite alternate`
+  background: `linear-gradient(90deg, #FF6484 0%, #DF46C5 100%)`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  textFillColor: "transparent",
+  backgroundSize: "150% auto",
+  animation: `${shine} 6s ease-in-out infinite alternate`,
 }));
 const ImageBox = styled('div')(({
   theme

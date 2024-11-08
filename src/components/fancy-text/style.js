@@ -1,9 +1,7 @@
 import styled from '@mui/material/styles/styled';
-export const StyledFancyText = styled('span')(({
-  theme
-}) => ({
-  background: 'linear-gradient(90deg, #B83DDA 21.75%, #FA03AA 73.2%)',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent'
+export const StyledFancyText = styled("span")(({ theme }) => ({
+  background: "linear-gradient(90deg, #FF6484 0%, #DF46C5 100%)",
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
 }));

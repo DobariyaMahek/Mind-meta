@@ -34,7 +34,7 @@ export default function MobileSidebar() {
           {
           /* USER ACCOUNT INFORMATION */
         }
-          <UserAccount />
+          {/* <UserAccount /> */}
         </NavWrapper>
       </Scrollbar>
     </LayoutDrawer>;

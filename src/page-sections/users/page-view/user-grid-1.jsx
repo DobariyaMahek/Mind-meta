@@ -57,7 +57,7 @@ export default function UserGrid1PageView() {
     }}>
         <HeadingArea value={userFilter.role} changeTab={changeTab} />
 
-        <SearchArea value={userFilter.search} onChange={e => handleChangeFilter('search', e.target.value)} gridRoute="/dashboard/user-grid" listRoute="/dashboard/user-list" />
+        <SearchArea value={userFilter.search} onChange={e => handleChangeFilter('search', e.target.value)} gridRoute="/dashboard/user-grid" listRoute="/dashboard/patient-list" />
 
         <Grid container spacing={3}>
           {paginate(page, userPerPage, filteredUsers).map((item, index) => <Grid size={{

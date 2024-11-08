@@ -52,7 +52,7 @@ export default function DashboardSidebar() {
           {
           /* USER ACCOUNT INFO */
         }
-          {!COMPACT ? <UserAccount /> : null}
+          {/* {!COMPACT ? <UserAccount /> : null} */}
         </Box>
       </Scrollbar>
     </SidebarWrapper>;

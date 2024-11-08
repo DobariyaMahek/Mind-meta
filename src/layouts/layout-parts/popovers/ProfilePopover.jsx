@@ -1,68 +1,79 @@
-import { Fragment, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // MUI
+import { Fragment, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom"; // MUI
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
-import ButtonBase from '@mui/material/ButtonBase';
-import styled from '@mui/material/styles/styled'; // CUSTOM COMPONENTS
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
+import ButtonBase from "@mui/material/ButtonBase";
+import styled from "@mui/material/styles/styled"; // CUSTOM COMPONENTS
 
-import PopoverLayout from './PopoverLayout';
-import FlexBox from '@/components/flexbox/FlexBox';
-import AvatarLoading from '@/components/avatar-loading';
-import { H6, Paragraph, Small } from '@/components/typography'; // CUSTOM DEFINED HOOK
+import PopoverLayout from "./PopoverLayout";
+import FlexBox from "@/components/flexbox/FlexBox";
+import AvatarLoading from "@/components/avatar-loading";
+import { H6, Paragraph, Small } from "@/components/typography"; // CUSTOM DEFINED HOOK
 
-import useAuth from '@/hooks/useAuth'; // CUSTOM UTILS METHOD
+import useAuth from "@/hooks/useAuth"; // CUSTOM UTILS METHOD
 
-import { isDark } from '@/utils/constants'; // STYLED COMPONENTS
+import { isDark } from "@/utils/constants"; // STYLED COMPONENTS
 
-const StyledButtonBase = styled(ButtonBase)(({
-  theme
-}) => ({
+const StyledButtonBase = styled(ButtonBase)(({ theme }) => ({
   marginLeft: 8,
   borderRadius: 30,
   border: `1px solid ${theme.palette.grey[isDark(theme) ? 800 : 200]}`,
-  '&:hover': {
-    backgroundColor: theme.palette.action.hover
-  }
+  "&:hover": {
+    backgroundColor: theme.palette.action.hover,
+  },
 }));
-const StyledSmall = styled(Paragraph)(({
-  theme
-}) => ({
+const StyledSmall = styled(Paragraph)(({ theme }) => ({
   fontSize: 13,
-  display: 'block',
-  cursor: 'pointer',
-  padding: '5px 1rem',
-  '&:hover': {
-    backgroundColor: theme.palette.action.hover
-  }
+  display: "block",
+  cursor: "pointer",
+  padding: "5px 1rem",
+  "&:hover": {
+    backgroundColor: theme.palette.action.hover,
+  },
 }));
 export default function ProfilePopover() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const {
-    logout
-  } = useAuth();
+  const { logout } = useAuth();
 
-  const handleMenuItem = path => () => {
+  const handleMenuItem = (path) => () => {
     navigate(path);
     setOpen(false);
   };
 
-  return <Fragment>
+  return (
+    <Fragment>
       <StyledButtonBase ref={anchorRef} onClick={() => setOpen(true)}>
-        <AvatarLoading alt="user" percentage={60} src="/static/user/user-11.png" sx={{
-        width: 35,
-        height: 35
-      }} />
+        <AvatarLoading
+          alt="user"
+          percentage={60}
+          src="/static/user/user-11.png"
+          sx={{
+            width: 35,
+            height: 35,
+          }}
+        />
       </StyledButtonBase>
 
-      <PopoverLayout hiddenViewButton maxWidth={230} minWidth={200} popoverOpen={open} anchorRef={anchorRef} popoverClose={() => setOpen(false)} title={<FlexBox alignItems="center" gap={1}>
-            <Avatar src="/static/user/user-11.png" sx={{
-        width: 35,
-        height: 35
-      }} />
+      <PopoverLayout
+        hiddenViewButton
+        maxWidth={230}
+        minWidth={200}
+        popoverOpen={open}
+        anchorRef={anchorRef}
+        popoverClose={() => setOpen(false)}
+        title={
+          <FlexBox alignItems="center" gap={1}>
+            <Avatar
+              src="/static/user/user-11.png"
+              sx={{
+                width: 35,
+                height: 35,
+              }}
+            />
 
             <div>
               <H6 fontSize={14}>Aaron Cooper</H6>
@@ -70,24 +81,31 @@ export default function ProfilePopover() {
                 aaron@example.com
               </Small>
             </div>
-          </FlexBox>}>
+          </FlexBox>
+        }
+      >
         <Box pt={1}>
-          <StyledSmall onClick={handleMenuItem('/dashboard/profile')}>Set Status</StyledSmall>
+          {/* <StyledSmall onClick={handleMenuItem('/dashboard/profile')}>Set Status</StyledSmall> */}
 
-          <StyledSmall onClick={handleMenuItem('/dashboard/profile')}>
+          <StyledSmall onClick={handleMenuItem("/dashboard/profile")}>
             Profile & Account
           </StyledSmall>
 
-          <StyledSmall onClick={handleMenuItem('/dashboard/account')}>Settings</StyledSmall>
+          <StyledSmall onClick={handleMenuItem("/dashboard/account")}>
+            Settings
+          </StyledSmall>
 
-          <StyledSmall onClick={handleMenuItem('/dashboard/profile')}>Manage Team</StyledSmall>
+          {/* <StyledSmall onClick={handleMenuItem('/dashboard/profile')}>Manage Team</StyledSmall> */}
 
-          <Divider sx={{
-          my: 1
-        }} />
+          <Divider
+            sx={{
+              my: 1,
+            }}
+          />
 
-          <StyledSmall onClick={logout}>Sign Out</StyledSmall>
+          <StyledSmall onClick={logout}>Log Out</StyledSmall>
         </Box>
       </PopoverLayout>
-    </Fragment>;
+    </Fragment>
+  );
 }

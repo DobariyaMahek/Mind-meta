@@ -49,7 +49,7 @@ export default function HeadingArea({
         </TabListWrapper>
       </TabContext>
 
-      <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/dashboard/add-user')}>
+      <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/dashboard/add-patient')}>
         Add New User
       </Button>
     </FlexBetween>;

@@ -109,7 +109,7 @@ export default function LoginPageView() {
             <Grid size={12}>
               <TextField
                 fullWidth
-                placeholder="Enter your work email"
+                placeholder="Email"
                 name="email"
                 onBlur={handleBlur}
                 value={values.email}

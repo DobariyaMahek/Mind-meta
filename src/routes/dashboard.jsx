@@ -76,163 +76,221 @@ const ActiveLayout = () => {
   return settings.activeLayout === 'layout2' ? <LayoutV2 /> : <LayoutV1 />;
 };
 
-export const DashboardRoutes = [{
-  path: 'dashboard',
-  element: <AuthGuard>
+export const DashboardRoutes = [
+  {
+    path: "dashboard",
+    element: (
+      <AuthGuard>
         <ActiveLayout />
-      </AuthGuard>,
-  children: [{
-    index: true,
-    element: <Analytics />
-  }, {
-    path: 'crm',
-    element: <CRM />
-  }, {
-    path: 'crm-2',
-    element: <CRMV2 />
-  }, {
-    path: 'sales',
-    element: <Sales />
-  }, {
-    path: 'sales-2',
-    element: <SalesV2 />
-  }, {
-    path: 'finance',
-    element: <Finance />
-  }, {
-    path: 'finance-2',
-    element: <FinanceV2 />
-  }, {
-    path: 'ecommerce',
-    element: <Ecommerce />
-  }, {
-    path: 'logistics',
-    element: <Logistics />
-  }, {
-    path: 'marketing',
-    element: <Marketing />
-  }, {
-    path: 'analytics-2',
-    element: <AnalyticsV2 />
-  }, {
-    path: 'learning-management',
-    element: <LMS />
-  }, {
-    path: 'job-management',
-    element: <JobManagement />
-  }, {
-    path: 'add-user',
-    element: <AddNewUser />
-  }, {
-    path: 'user-list',
-    element: <UserListView />
-  }, {
-    path: 'user-grid',
-    element: <UserGridView />
-  }, {
-    path: 'user-list-2',
-    element: <UserListView2 />
-  }, {
-    path: 'user-grid-2',
-    element: <UserGridView2 />
-  }, {
-    path: 'account',
-    element: <Account />
-  }, {
-    path: 'invoice-list',
-    element: <InvoiceList />
-  }, {
-    path: 'create-invoice',
-    element: <InvoiceCreate />
-  }, {
-    path: 'invoice-details',
-    element: <InvoiceDetails />
-  }, {
-    path: 'product-list',
-    element: <ProductList />
-  }, {
-    path: 'product-grid',
-    element: <ProductGrid />
-  }, {
-    path: 'create-product',
-    element: <ProductCreate />
-  }, {
-    path: 'product-details',
-    element: <ProductDetails />
-  }, {
-    path: 'cart',
-    element: <Cart />
-  }, {
-    path: 'payment',
-    element: <Payment />
-  }, {
-    path: 'billing-address',
-    element: <BillingAddress />
-  }, {
-    path: 'payment-complete',
-    element: <PaymentComplete />
-  }, {
-    path: 'profile',
-    element: <Profile />
-  }, {
-    path: 'data-table-1',
-    element: <DataTable1 />
-  }, {
-    path: 'about',
-    element: <About />
-  }, {
-    path: 'career',
-    element: <Career />
-  }, {
-    path: 'file-manager',
-    element: <FileManager />
-  }, {
-    path: 'support',
-    element: <Support />
-  }, {
-    path: 'create-ticket',
-    element: <CreateTicket />
-  }, {
-    path: 'chat',
-    element: <Chat />
-  }, {
-    path: 'todo-list',
-    element: <TodoList />
-  }, {
-    path: 'mail',
-    children: [{
-      path: 'all',
-      element: <AllMail />
-    }, {
-      path: 'inbox',
-      element: <Inbox />
-    }, {
-      path: 'sent',
-      element: <Sent />
-    }, {
-      path: 'compose',
-      element: <Compose />
-    }, {
-      path: 'details',
-      element: <MailDetails />
-    }]
-  }, {
-    path: 'projects',
-    children: [{
-      path: 'version-1',
-      element: <ProjectV1 />
-    }, {
-      path: 'version-2',
-      element: <ProjectV2 />
-    }, {
-      path: 'version-3',
-      element: <ProjectV3 />
-    }, {
-      path: 'details',
-      element: <ProjectDetails />
-    }, {
-      path: 'team-member',
-      element: <TeamMember />
-    }]
-  }]
-}];
+      </AuthGuard>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Analytics />,
+      },
+      // {
+      //   path: "crm",
+      //   element: <CRM />,
+      // },
+      // {
+      //   path: "crm-2",
+      //   element: <CRMV2 />,
+      // },
+      // {
+      //   path: "sales",
+      //   element: <Sales />,
+      // },
+      // {
+      //   path: "sales-2",
+      //   element: <SalesV2 />,
+      // },
+      // {
+      //   path: "finance",
+      //   element: <Finance />,
+      // },
+      // {
+      //   path: "finance-2",
+      //   element: <FinanceV2 />,
+      // },
+      // {
+      //   path: "ecommerce",
+      //   element: <Ecommerce />,
+      // },
+      // {
+      //   path: "logistics",
+      //   element: <Logistics />,
+      // },
+      // {
+      //   path: "marketing",
+      //   element: <Marketing />,
+      // },
+      // {
+      //   path: "analytics-2",
+      //   element: <AnalyticsV2 />,
+      // },
+      // {
+      //   path: "learning-management",
+      //   element: <LMS />,
+      // },
+      // {
+      //   path: "job-management",
+      //   element: <JobManagement />,
+      // },
+      {
+        path: "add-patient",
+        element: <AddNewUser />,
+      },
+      {
+        path: "patient-list",
+        element: <UserListView />,
+      },
+      // {
+      //   path: "user-grid",
+      //   element: <UserGridView />,
+      // },
+      // {
+      //   path: "user-list-2",
+      //   element: <UserListView2 />,
+      // },
+      // {
+      //   path: "user-grid-2",
+      //   element: <UserGridView2 />,
+      // },
+      {
+        path: "account",
+        element: <Account />,
+      },
+      {
+        path: "invoice-list",
+        element: <InvoiceList />,
+      },
+      {
+        path: "create-invoice",
+        element: <InvoiceCreate />,
+      },
+      {
+        path: "invoice-details",
+        element: <InvoiceDetails />,
+      },
+      {
+        path: "schedule-call-list",
+        element: <ProductList />,
+      },
+      // {
+      //   path: "product-grid",
+      //   element: <ProductGrid />,
+      // },
+      {
+        path: "schedule-call",
+        element: <ProductCreate />,
+      },
+      {
+        path: "call-details",
+        element: <ProductDetails />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
+      },
+      {
+        path: "billing-address",
+        element: <BillingAddress />,
+      },
+      {
+        path: "payment-complete",
+        element: <PaymentComplete />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "data-table-1",
+        element: <DataTable1 />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "career",
+        element: <Career />,
+      },
+      {
+        path: "file-manager",
+        element: <FileManager />,
+      },
+      {
+        path: "support",
+        element: <Support />,
+      },
+      {
+        path: "create-ticket",
+        element: <CreateTicket />,
+      },
+      {
+        path: "chat",
+        element: <Chat />,
+      },
+      {
+        path: "todo-list",
+        element: <TodoList />,
+      },
+      {
+        path: "mail",
+        children: [
+          {
+            path: "all",
+            element: <AllMail />,
+          },
+          {
+            path: "inbox",
+            element: <Inbox />,
+          },
+          {
+            path: "sent",
+            element: <Sent />,
+          },
+          {
+            path: "compose",
+            element: <Compose />,
+          },
+          {
+            path: "details",
+            element: <MailDetails />,
+          },
+        ],
+      },
+      {
+        path: "projects",
+        children: [
+          {
+            path: "version-1",
+            element: <ProjectV1 />,
+          },
+          {
+            path: "version-2",
+            element: <ProjectV2 />,
+          },
+          {
+            path: "version-3",
+            element: <ProjectV3 />,
+          },
+          {
+            path: "details",
+            element: <ProjectDetails />,
+          },
+          {
+            path: "team-member",
+            element: <TeamMember />,
+          },
+        ],
+      },
+    ],
+  },
+];

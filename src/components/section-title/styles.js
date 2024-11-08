@@ -20,18 +20,15 @@ export const Text = styled('h1', {
     fontSize: 27
   }
 }));
-export const Shape = styled('div', {
-  shouldForwardProp: prop => prop !== 'centered'
-})(({
-  theme,
-  centered
-}) => ({
+export const Shape = styled("div", {
+  shouldForwardProp: (prop) => prop !== "centered",
+})(({ theme, centered }) => ({
   height: 4,
   width: 140,
   marginTop: theme.spacing(1),
   borderRadius: theme.spacing(4),
-  background: 'linear-gradient(90deg, #B83DDA 0%, #F600CF 120%)',
+  background: "linear-gradient(90deg, #FF6484 0%, #DF46C5 100%)",
   ...(centered && {
-    marginInline: 'auto'
-  })
+    marginInline: "auto",
+  }),
 }));

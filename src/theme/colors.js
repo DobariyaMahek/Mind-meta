@@ -21,12 +21,12 @@ export const primary = {
   200: '#C8BAFC',
   300: '#A996F8',
   400: '#907AF1',
-  500: '#B83DDA',
-  600: '#B83DDA',
+  500: '#F12A81',
+  600: '#F12A81',
   700: '#4317CA',
   800: '#33129C',
   900: '#240C6E',
-  main: '#B83DDA'
+  main: '#F12A81'
 };
 export const success = {
   25: '#F1FEF5',

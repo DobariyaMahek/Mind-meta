@@ -68,7 +68,7 @@ export default function UserList1PageView() {
         <Box px={2} pt={2}>
           <HeadingArea value={userFilter.role} changeTab={handleChangeTab} />
 
-          <SearchArea value={userFilter.search} gridRoute="/dashboard/user-grid" listRoute="/dashboard/user-list" onChange={e => handleChangeFilter('search', e.target.value)} />
+          <SearchArea value={userFilter.search} gridRoute="/dashboard/user-grid" listRoute="/dashboard/patient-list" onChange={e => handleChangeFilter('search', e.target.value)} />
         </Box>
 
         {
