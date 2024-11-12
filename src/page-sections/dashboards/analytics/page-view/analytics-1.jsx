@@ -16,10 +16,57 @@ import TopActivityDashboard from "../../dashboardcomponent/topactivity";
 import Memorysection from "../../dashboardcomponent/memory";
 import Cognitivesection from "../../dashboardcomponent/cognitivesection";
 import Chatsection from "../../dashboardcomponent/chatsection";
+import MarketingPageView from "../../marketing/page-view";
+import TotalItems from "../../marketing/TotalItems";
+import YearlySales from "../../marketing/YearlySales";
+import TotalOrder from "../../marketing/TotalOrder";
+import YearlyRevenue from "../../marketing/YearlyRevenue";
 export default function Analytics1PageView() {
   return (
     <div className="pt-2 pb-4">
       <Grid container spacing={3}>
+        <Grid
+          size={{
+            lg: 3,
+            sm: 6,
+            xs: 12,
+          }}
+        >
+          <TotalItems />
+        </Grid>
+
+        {/* YEARLY SALES CARD */}
+        <Grid
+          size={{
+            lg: 3,
+            sm: 6,
+            xs: 12,
+          }}
+        >
+          <YearlySales />
+        </Grid>
+
+        {/* TOTAL ORDER CARD */}
+        <Grid
+          size={{
+            lg: 3,
+            sm: 6,
+            xs: 12,
+          }}
+        >
+          <TotalOrder />
+        </Grid>
+
+        {/* YEARLY REVENUE CARD */}
+        <Grid
+          size={{
+            lg: 3,
+            sm: 6,
+            xs: 12,
+          }}
+        >
+          <YearlyRevenue />
+        </Grid>
         {/* DIFFERENT DATA SHOW WITH CHART */}
         <Grid
           size={{

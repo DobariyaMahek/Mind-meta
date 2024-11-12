@@ -52,6 +52,8 @@ const FileManager = Loadable(lazy(() => import('@/pages/dashboard/file-manager')
 
 const Support = Loadable(lazy(() => import('@/pages/dashboard/support/support')));
 const CreateTicket = Loadable(lazy(() => import('@/pages/dashboard/support/create-ticket'))); // CHAT PAGE
+const Instruction = Loadable(lazy(() => import('@/pages/dashboard/support/instruction'))); // CHAT PAGE
+const LifeHistory = Loadable(lazy(() => import('@/pages/dashboard/support/lifeHistory'))); // CHAT PAGE
 
 const Chat = Loadable(lazy(() => import('@/pages/dashboard/chat'))); // USER TODO LIST PAGE
 
@@ -145,10 +147,10 @@ export const DashboardRoutes = [
         path: "patient-list",
         element: <UserListView />,
       },
-      // {
-      //   path: "user-grid",
-      //   element: <UserGridView />,
-      // },
+      {
+        path: "patient-grid-list",
+        element: <UserGridView />,
+      },
       // {
       //   path: "user-list-2",
       //   element: <UserListView2 />,
@@ -230,11 +232,19 @@ export const DashboardRoutes = [
         element: <Support />,
       },
       {
-        path: "create-ticket",
+        path: "media",
         element: <CreateTicket />,
       },
       {
-        path: "chat",
+        path: "instruction",
+        element: <Instruction />,
+      },
+      {
+        path: "life-history",
+        element: <LifeHistory />,
+      },
+      {
+        path: "call-history",
         element: <Chat />,
       },
       {

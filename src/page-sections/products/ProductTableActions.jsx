@@ -48,7 +48,7 @@ export default function ProductTableActions({
     value: 'draft'
   }];
   return <Wrapper>
-      <TextField select fullWidth label="Publish" className="select" value={filter.publish} onChange={e => handleChangeFilter('publish', e.target.value)}>
+      {/* <TextField select fullWidth label="Publish" className="select" value={filter.publish} onChange={e => handleChangeFilter('publish', e.target.value)}>
         {FILTER_VALUES.map(({
         id,
         name,
@@ -56,7 +56,7 @@ export default function ProductTableActions({
       }) => <MenuItem key={id} value={value}>
             {name}
           </MenuItem>)}
-      </TextField>
+      </TextField> */}
 
       <TextField fullWidth label="Search by product name..." value={filter.search} onChange={e => handleChangeFilter('search', e.target.value)} />
 
@@ -65,9 +65,9 @@ export default function ProductTableActions({
           <FormatBullets color="primary" />
         </IconButton>
 
-        <IconButton onClick={() => navigate('/dashboard/product-grid')}>
+        {/* <IconButton onClick={() => navigate('/dashboard/product-grid')}>
           <Apps />
-        </IconButton>
+        </IconButton> */}
       </div>
     </Wrapper>;
 }

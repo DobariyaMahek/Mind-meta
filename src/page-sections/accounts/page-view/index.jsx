@@ -68,10 +68,10 @@ export default function AccountsPageView() {
         xs: 12
       }}>
           {active === tabList[0].name && <TabComponent.BasicInformation />}
-          {active === tabList[1].name && <TabComponent.Password />}
-          {active === tabList[2].name && <TabComponent.Preferences />}
-          {active === tabList[3].name && <TabComponent.RecentDevices />}
-          {active === tabList[4].name && <TabComponent.Notifications />}
+          {active === tabList[1].name && <TabComponent.Notifications />}
+          {/* {active === tabList[2].name && <TabComponent.Password />}
+          {active === tabList[3].name && <TabComponent.Preferences />}
+          {active === tabList[4].name && <TabComponent.RecentDevices />}
           {active === tabList[5].name && <TabComponent.TwoStepVerification />}
           {active === tabList[6].name && <TabComponent.ConnectedAccounts />}
           {active === tabList[7].name && <TabComponent.SocialAccounts />}
@@ -79,61 +79,75 @@ export default function AccountsPageView() {
           {active === tabList[9].name && <TabComponent.Statements />}
           {active === tabList[10].name && <TabComponent.Referrals />}
           {active === tabList[11].name && <TabComponent.ApiKeys />}
-          {active === tabList[12].name && <TabComponent.DeleteAccount />}
+          {active === tabList[12].name && <TabComponent.DeleteAccount />} */}
         </Grid>
       </Grid>
     </div>;
 }
-const tabList = [{
-  id: 1,
-  name: 'Basic Information',
-  Icon: Icons.UserOutlined
-}, {
-  id: 2,
-  name: 'Password',
-  Icon: Icons.LockOutlined
-}, {
-  id: 3,
-  name: 'Preferences',
-  Icon: Icons.SettingsOutlined
-}, {
-  id: 4,
-  name: 'Recent Devices',
-  Icon: Icons.DevicesApple
-}, {
-  id: 5,
-  name: 'Notifications',
-  Icon: Icons.NotificationOutlined
-}, {
-  id: 6,
-  name: 'Two-step verification',
-  Icon: Icons.Fingerprint
-}, {
-  id: 7,
-  name: 'Connected accounts',
-  Icon: Icons.Link
-}, {
-  id: 8,
-  name: 'Social Account',
-  Icon: Icons.Instagram
-}, {
-  id: 9,
-  name: 'Billing',
-  Icon: Icons.DollarOutlined
-}, {
-  id: 10,
-  name: 'Statements',
-  Icon: Icons.FileOutlined
-}, {
-  id: 11,
-  name: 'Referrals',
-  Icon: Icons.PremiumOutlined
-}, {
-  id: 12,
-  name: 'API Keys',
-  Icon: Icons.Key
-}, {
-  id: 13,
-  name: 'Delete account',
-  Icon: Icons.DeleteOutlined
-}];
+const tabList = [
+  {
+    id: 1,
+    name: "Basic Information",
+    Icon: Icons.UserOutlined,
+  },
+  {
+    id: 2,
+    name: "Notifications",
+    Icon: Icons.NotificationOutlined,
+  },
+  // {
+  //   id: 3,
+  //   name: "Preferences",
+  //   Icon: Icons.SettingsOutlined,
+  // },
+  // {
+  //   id: 4,
+  //   name: "Recent Devices",
+  //   Icon: Icons.DevicesApple,
+  // },
+  // {
+  //   id: 5,
+  //   name: "Password",
+  //   Icon: Icons.LockOutlined,
+  // },
+  // {
+  //   id: 6,
+  //   name: "Two-step verification",
+  //   Icon: Icons.Fingerprint,
+  // },
+  // {
+  //   id: 7,
+  //   name: "Connected accounts",
+  //   Icon: Icons.Link,
+  // },
+  // {
+  //   id: 8,
+  //   name: "Social Account",
+  //   Icon: Icons.Instagram,
+  // },
+  // {
+  //   id: 9,
+  //   name: "Billing",
+  //   Icon: Icons.DollarOutlined,
+  // },
+  // {
+  //   id: 10,
+  //   name: "Statements",
+  //   Icon: Icons.FileOutlined,
+  // },
+  // {
+  //   id: 11,
+  //   name: "Referrals",
+  //   Icon: Icons.PremiumOutlined,
+  // },
+  // {
+  //   id: 12,
+  //   name: "API Keys",
+  //   Icon: Icons.Key,
+  // },
+  // {
+  //   id: 13,
+  //   name: "Delete account",
+  //   Icon: Icons.DeleteOutlined,
+  // },
+];

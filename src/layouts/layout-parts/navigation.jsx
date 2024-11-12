@@ -93,16 +93,7 @@ export const navigations = [
     type: "label",
     label: "Management",
   },
-  {
-    name: "Profile",
-    icon: duotone.UserProfile,
-    path: "/dashboard/profile",
-  },
-  {
-    name: "Account",
-    icon: duotone.Accounts,
-    path: "/dashboard/account",
-  },
+
   {
     name: "Patient",
     icon: duotone.UserList,
@@ -115,10 +106,10 @@ export const navigations = [
         name: "Patient List",
         path: "/dashboard/patient-list",
       },
-      // {
-      //   name: "User Grid 1",
-      //   path: "/dashboard/user-grid",
-      // },
+      {
+        name: "Patient Grid List",
+        path: "/dashboard/patient-grid-list",
+      },
       // {
       //   name: "User List 2",
       //   path: "/dashboard/patient-list-2",
@@ -233,9 +224,9 @@ export const navigations = [
   //   path: "/dashboard/todo-list",
   // },
   {
-    name: "Chats",
+    name: "Call History",
     icon: duotone.Chat,
-    path: "/dashboard/chat",
+    path: "/dashboard/call-history",
   },
   // {
   //   name: "Email",
@@ -255,90 +246,38 @@ export const navigations = [
   //     },
   //   ],
   // },
-  // {
-  //   name: "Pages",
-  //   icon: duotone.Pages,
-  //   children: [
-  //     {
-  //       iconText: "E",
-  //       name: "Ecommerce",
-  //       path: "#ecommerce",
-  //       children: [
-  //         {
-  //           name: "Shop",
-  //           path: "/products",
-  //         },
-  //         {
-  //           name: "Product Details",
-  //           path: "/products/Wu4GdphiI0F48eMQZ_zBJ",
-  //         },
-  //         {
-  //           name: "Cart",
-  //           path: "/cart",
-  //         },
-  //         {
-  //           name: "Checkout",
-  //           path: "/checkout",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       iconText: "C",
-  //       name: "Career",
-  //       path: "#career",
-  //       children: [
-  //         {
-  //           name: "Career (Admin)",
-  //           path: "/dashboard/career",
-  //         },
-  //         {
-  //           name: "Career (Public)",
-  //           path: "/career",
-  //         },
-  //         {
-  //           name: "Job Details",
-  //           path: "/career/designer",
-  //         },
-  //         {
-  //           name: "Job Apply",
-  //           path: "/career/apply",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: "About (Admin)",
-  //       path: "/dashboard/about",
-  //     },
-  //     {
-  //       name: "About (Public)",
-  //       path: "/about-us",
-  //     },
-  //     {
-  //       name: "Contact",
-  //       path: "/contact-us",
-  //     },
-  //     {
-  //       name: "Faq",
-  //       path: "/faqs",
-  //     },
-  //     {
-  //       name: "Pricing",
-  //       path: "/pricing",
-  //     },
-  //     {
-  //       name: "Support",
-  //       path: "/dashboard/support",
-  //     },
-  //     {
-  //       name: "Create Ticket",
-  //       path: "/dashboard/create-ticket",
-  //     },
-  //     {
-  //       name: "File Manager",
-  //       path: "/dashboard/file-manager",
-  //     },
-  //   ],
-  // },
+  {
+    name: "Train Bot",
+    icon: duotone.Pages,
+    children: [
+      {
+        name: "Media",
+        path: "/dashboard/media",
+      },
+      {
+        name: "Instruction",
+        path: "/dashboard/instruction",
+      },
+      {
+        name: "Life History",
+        path: "/dashboard/life-history",
+      },
+    ],
+  },
+  {
+    type: "label",
+    label: "Settings",
+  },
+  {
+    name: "Profile",
+    icon: duotone.UserProfile,
+    path: "/dashboard/profile",
+  },
+  {
+    name: "Account",
+    icon: duotone.Accounts,
+    path: "/dashboard/account",
+  },
   // {
   //   type: "extLink",
   //   name: "Documentation",

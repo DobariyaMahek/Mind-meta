@@ -18,8 +18,10 @@ export default function ChatItem(props) {
     lastMsgSeen,
     isLastMsgIncoming
   } = props;
-  return <Wrapper>
-      <Avatar src={image} />
+  return (
+    <Wrapper>
+      {/* <Avatar src={image} /> */}
+      <div className="profile-icon">A</div>
 
       <div className="chat-info">
         <FlexBetween>
@@ -29,7 +31,7 @@ export default function ChatItem(props) {
           </Paragraph>
         </FlexBetween>
 
-        <FlexBetween mt={0.5}>
+        {/* <FlexBetween mt={0.5}>
           <Paragraph fontSize={12} color="text.secondary">
             {!isLastMsgIncoming ? <Span color="text.primary">You: </Span> : null}
             {lastMsg}
@@ -41,7 +43,8 @@ export default function ChatItem(props) {
           fontSize: 18,
           color: lastMsgSeen ? 'primary.main' : 'grey.400'
         }} />}
-        </FlexBetween>
+        </FlexBetween> */}
       </div>
-    </Wrapper>;
+    </Wrapper>
+  );
 }

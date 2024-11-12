@@ -76,7 +76,7 @@ export default function SupportPageView() {
             <TabButton title="CONTACT" active={active} handleChange={handleChange} />
           </FlexBox>
 
-          <Button size="small" onClick={() => navigate('/dashboard/create-ticket')}>
+          <Button size="small" onClick={() => navigate('/dashboard/media')}>
             Create Ticket
           </Button>
         </FlexBetween>

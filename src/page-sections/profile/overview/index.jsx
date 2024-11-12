@@ -18,17 +18,17 @@ export default function Overview() {
         md: 8,
         xs: 12
       }}>
-          <Stack spacing={3}>
+          {/* <Stack spacing={3}>
             <Summery />
             <Skills />
             <Teams />
             <Hobbies />
             <Posts />
             <Portfolio />
-          </Stack>
+          </Stack> */}
         </Grid>
 
-        <Grid size={{
+        {/* <Grid size={{
         lg: 3,
         md: 4,
         xs: 12
@@ -37,7 +37,7 @@ export default function Overview() {
             <MyConnections />
             <AdditionalDetails />
           </Stack>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>;
 }

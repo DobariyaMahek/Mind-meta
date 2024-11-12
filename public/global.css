@@ -1,0 +1,105 @@
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f12a81;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* family information */
+.family-information {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.family-info-box {
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #fff;
+}
+
+.family-info-box p {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #fff;
+  word-break: break-word;
+}
+
+.family-info-box span {
+  color: #808080;
+}
+
+/* family member modal */
+.family-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.family-modal-content {
+  max-width: 500px;
+  padding: 20px;
+  background-color: #1f2937;
+  border-radius: 12px;
+}
+
+.family-head {
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  gap: 20px;
+}
+
+.family-head h2 {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.family-head button {
+  background-color: transparent;
+  border: none;
+  font-style: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.family-card {
+  padding: 20px 5px 0 5px;
+}
+
+/* Call details */
+.call-details {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.call-details-box {
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #fff;
+}
+
+.call-details-box p {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #fff;
+  word-break: break-word;
+}
+
+.call-details-box span {
+  color: #808080;
+}

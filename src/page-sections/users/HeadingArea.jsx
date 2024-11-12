@@ -40,13 +40,13 @@ export default function HeadingArea({
       </FlexBox>
 
       <TabContext value={value}>
-        <TabListWrapper variant="scrollable" onChange={changeTab}>
+        {/* <TabListWrapper variant="scrollable" onChange={changeTab}>
           <Tab disableRipple label="All Users" value="" />
           <Tab disableRipple label="Editor" value="editor" />
           <Tab disableRipple label="Contributor" value="contributor" />
           <Tab disableRipple label="Administrator" value="administrator" />
           <Tab disableRipple label="Subscriber" value="subscriber" />
-        </TabListWrapper>
+        </TabListWrapper> */}
       </TabContext>
 
       <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/dashboard/add-patient')}>

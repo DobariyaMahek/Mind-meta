@@ -49,9 +49,23 @@ const signInWithGoogle = () => {
 }; // REGISTER USER WITH EMAIL HANDLER
 
 
-const createUserWithEmail = (email, password) => {
-  return createUserWithEmailAndPassword(auth, email, password);
-}; // USER LOGOUT HANDLER
+const createUserWithEmail = async (email, password) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    return userCredential;
+  } catch (error) {
+    if (error.code === "auth/email-already-in-use") {
+      // If the user already exists, sign in with the same credentials
+      return signInWithEmail(email, password);
+    } else {
+      throw error;
+    }
+  }
+};
 
 
 const logout = () => signOut(auth); // AUTH CONTEXT INITIALIZE

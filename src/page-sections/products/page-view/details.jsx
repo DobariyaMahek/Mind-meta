@@ -23,24 +23,7 @@ export default function ProductDetailsPageView() {
 
         <Grid size={12}>
           <Card>
-            <TabContext value={tab}>
-              <TabList onChange={tabChange} sx={{
-              pl: 3,
-              minHeight: 50,
-              pt: 0.5
-            }}>
-                <Tab disableRipple label="Description" value="1" />
-                <Tab disableRipple label="Reviews" value="2" />
-              </TabList>
-
-              <TabPanel value="1">
-                <ProductDescription />
-              </TabPanel>
-
-              <TabPanel value="2">
-                <ProductReviews />
-              </TabPanel>
-            </TabContext>
+            
           </Card>
         </Grid>
       </Grid>

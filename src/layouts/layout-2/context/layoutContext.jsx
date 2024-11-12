@@ -1,103 +1,82 @@
-import { useCallback, useEffect, useState, createContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // MUI
+import { useCallback, useEffect, useState, createContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { navigation } from "./navigation";
 
-import useMediaQuery from '@mui/material/useMediaQuery';
-// CUSTOM NAVIGATION DATA
-import { navigation } from './navigation'; // ==============================================================
-
-// ==============================================================
 export const LayoutContext = createContext({});
-export default function LayoutProvider({
-  children
-}) {
+
+export default function LayoutProvider({ children }) {
   const navigate = useNavigate();
-  const {
-    pathname
-  } = useLocation();
-  const [active, setActive] = useState('');
-  const [activeSubMenuItem, setActiveSubMenuItem] = useState('');
+  const { pathname } = useLocation();
+  const [active, setActive] = useState("");
+  const [activeSubMenuItem, setActiveSubMenuItem] = useState("");
   const [showMobileSideBar, setShowMobileSideBar] = useState(false);
   const [openSecondarySideBar, setOpenSecondarySideBar] = useState(false);
   const [categoryMenus, setCategoryMenus] = useState([]);
-  const downMd = useMediaQuery(theme => theme.breakpoints.down(1200));
+  const downMd = useMediaQuery((theme) => theme.breakpoints.down(1200));
 
   const handleCloseMobileSidebar = () => setShowMobileSideBar(false);
+  const handleSecondarySideBar = (value) => setOpenSecondarySideBar(value);
+  const handleToggleSecondarySideBar = () =>
+    setShowMobileSideBar((state) => !state);
 
-  const handleSecondarySideBar = value => setOpenSecondarySideBar(value);
-
-  const handleToggleSecondarySideBar = () => setShowMobileSideBar(state => !state); // Function to handle the active main menu item.
-
-
-  const handleActiveMainMenu = menuItem => () => {
-    // Set the active menu item title
-    setActive(menuItem.name); // Check if the menu item has children
+  const handleActiveMainMenu = (menuItem) => {
+    setActive(menuItem.name);
 
     if (menuItem.children && menuItem.children.length > 0) {
-      // Set the category menus to the children of the menu item
-      setCategoryMenus(menuItem.children); // Check if the secondary sidebar is already open and the active menu item is the same as the title
-
-      const matched = openSecondarySideBar && active === menuItem.name; // Set the openSecondarySideBar state based on the conditions
-
-      handleSecondarySideBar(matched ? false : true);
+      setCategoryMenus(menuItem.children);
+      const matched = openSecondarySideBar && active === menuItem.name;
+      handleSecondarySideBar(!matched);
     } else {
-      // Navigate to the path of the menu item
-      navigate(menuItem.path); // Set the category
-
-      setCategoryMenus([]); // Close the mobile sidebar
-
-      handleCloseMobileSidebar(); // Close the secondary sidebar
-
+      navigate(menuItem.path);
+      setCategoryMenus([]);
+      handleCloseMobileSidebar();
       handleSecondarySideBar(false);
     }
-  }; // Function to activate the route based on the current path
-
+  };
 
   const activeRoute = useCallback(() => {
-    navigation.forEach(menu => {
-      // Find the child of the current menu item that matches the current path
-      const findChild = menu.children?.find(item => item.path === pathname);
-
+    navigation.forEach((menu) => {
+      const findChild = menu.children?.find((item) => item.path === pathname);
       if (findChild) {
-        setActive(menu.name); // Update active menu item
-
-        handleSecondarySideBar(true); // Open secondary sidebar
-
-        setCategoryMenus(menu.children); // Update category menus
-
-        setActiveSubMenuItem(findChild.path); // Update active sub menu item
+        setActive(menu.name);
+        handleSecondarySideBar(true);
+        setCategoryMenus(menu.children);
+        setActiveSubMenuItem(findChild.path);
       } else if (menu.path === pathname) {
-        setActive(menu.name); // update the active menu item
-
-        handleSecondarySideBar(false); // close the secondary sidebar
+        setActive(menu.name);
+        handleSecondarySideBar(false);
       }
-    }); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    });
+  }, [pathname]);
+
   useEffect(() => {
     activeRoute();
-  }, [activeRoute]); // Handles the sub menu item click event.
+  }, [activeRoute]);
 
-  const handleSubMenuItem = path => {
-    // Navigate to the clicked sub menu item.
-    navigate(path); // Update the active sub menu item.
-
-    setActiveSubMenuItem(path); // Close the mobile side bar.
-
+  const handleSubMenuItem = (path) => {
+    navigate(path);
+    setActiveSubMenuItem(path);
     handleCloseMobileSidebar();
   };
 
-  return <LayoutContext.Provider value={{
-    active,
-    downMd,
-    categoryMenus,
-    activeSubMenuItem,
-    showMobileSideBar,
-    openSecondarySideBar,
-    handleSubMenuItem,
-    handleActiveMainMenu,
-    handleSecondarySideBar,
-    handleCloseMobileSidebar,
-    handleToggleSecondarySideBar
-  }}>
+  return (
+    <LayoutContext.Provider
+      value={{
+        active,
+        downMd,
+        categoryMenus,
+        activeSubMenuItem,
+        showMobileSideBar,
+        openSecondarySideBar,
+        handleSubMenuItem,
+        handleActiveMainMenu,
+        handleSecondarySideBar,
+        handleCloseMobileSidebar,
+        handleToggleSecondarySideBar,
+      }}
+    >
       {children}
-    </LayoutContext.Provider>;
+    </LayoutContext.Provider>
+  );
 }

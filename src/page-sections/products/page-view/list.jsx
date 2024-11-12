@@ -84,9 +84,9 @@ export default function ProductListPageView() {
   return <div className="pt-2 pb-4">
       <ListWrapper>
         <Tabs value={productFilter.stock} onChange={(_, value) => handleChangeFilter('stock', value)}>
-          <Tab disableRipple label="All" value="" />
+          {/* <Tab disableRipple label="All" value="" />
           <Tab disableRipple label="In Stock" value="stock" />
-          <Tab disableRipple label="Out of Stock" value="out-of-stock" />
+          <Tab disableRipple label="Out of Stock" value="out-of-stock" /> */}
         </Tabs>
 
         <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/dashboard/create-product')}>

@@ -1,4 +1,6 @@
 import React from 'react';
+import "../public/global.css"
+
 import ReactDOM from 'react-dom/client'; // ROOT APP COMPONENT
 
 import App from './App'; // SITE SETTINGS CONTEXT

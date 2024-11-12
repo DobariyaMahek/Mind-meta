@@ -50,28 +50,42 @@ export default function UserGrid1PageView() {
     color: 'grey.500',
     fontSize: 18
   };
-  return <div className="pt-2 pb-4">
-      <Card sx={{
-      px: 3,
-      py: 2
-    }}>
+  return (
+    <div className="pt-2 pb-4">
+      <Card
+        sx={{
+          px: 3,
+          py: 2,
+        }}
+      >
         <HeadingArea value={userFilter.role} changeTab={changeTab} />
 
-        <SearchArea value={userFilter.search} onChange={e => handleChangeFilter('search', e.target.value)} gridRoute="/dashboard/user-grid" listRoute="/dashboard/patient-list" />
+        <SearchArea
+          value={userFilter.search}
+          onChange={(e) => handleChangeFilter("search", e.target.value)}
+          gridRoute="/dashboard/patient-grid-list"
+          listRoute="/dashboard/patient-list"
+        />
 
         <Grid container spacing={3}>
-          {paginate(page, userPerPage, filteredUsers).map((item, index) => <Grid size={{
-          lg: 3,
-          md: 4,
-          sm: 6,
-          xs: 12
-        }} key={index}>
-              <Box sx={{
-            p: 3,
-            borderRadius: 2,
-            border: '1px solid',
-            borderColor: 'divider'
-          }}>
+          {paginate(page, userPerPage, filteredUsers).map((item, index) => (
+            <Grid
+              size={{
+                lg: 3,
+                md: 4,
+                sm: 6,
+                xs: 12,
+              }}
+              key={index}
+            >
+              <Box
+                sx={{
+                  p: 3,
+                  borderRadius: 2,
+                  border: "1px solid",
+                  borderColor: "divider",
+                }}
+              >
                 <FlexBetween mx={-1} mt={-1}>
                   <Checkbox size="small" />
 
@@ -81,9 +95,12 @@ export default function UserGrid1PageView() {
                 </FlexBetween>
 
                 <Stack direction="row" alignItems="center" py={2} spacing={2}>
-                  <Avatar src={item.avatar} sx={{
-                borderRadius: '20%'
-              }} />
+                  <Avatar
+                    src={item.avatar}
+                    sx={{
+                      borderRadius: "20%",
+                    }}
+                  />
 
                   <div>
                     <Paragraph fontWeight={500}>{item.name}</Paragraph>
@@ -106,14 +123,20 @@ export default function UserGrid1PageView() {
                   <Small color="grey.500">Posts: 12</Small>
                 </Stack>
               </Box>
-            </Grid>)}
+            </Grid>
+          ))}
 
           <Grid size={12}>
             <Stack alignItems="center" py={2}>
-              <Pagination shape="rounded" count={Math.ceil(filteredUsers.length / userPerPage)} onChange={(_, newPage) => setPage(newPage)} />
+              <Pagination
+                shape="rounded"
+                count={Math.ceil(filteredUsers.length / userPerPage)}
+                onChange={(_, newPage) => setPage(newPage)}
+              />
             </Stack>
           </Grid>
         </Grid>
       </Card>
-    </div>;
+    </div>
+  );
 }

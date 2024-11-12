@@ -42,7 +42,7 @@ export default function ChatPageView() {
     height: '100%',
     pb: 1
   }}>
-      <div className="p-3">
+      {/* <div className="p-3">
         <FlexBetween mb={3}>
           <H6 fontSize={18}>Messages</H6>
 
@@ -52,14 +52,14 @@ export default function ChatPageView() {
         </FlexBetween>
 
         <StyledSearchInput placeholder="Search..." />
-      </div>
+      </div> */}
 
       {
       /* PINNED ITEMS */
     }
-      <PinChats />
+      {/* <PinChats /> */}
 
-      <Divider />
+      {/* <Divider /> */}
 
       {
       /* ALL MESSAGES */

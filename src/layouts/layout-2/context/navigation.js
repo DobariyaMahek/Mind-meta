@@ -4,95 +4,86 @@ export const navigation = [
   {
     name: "Dashboards",
     Icon: duotone.PersonChalkboard,
-    children: [
-      {
-        name: "Dashboard",
-        path: "/dashboard",
-      },
-      // {
-      //   name: "Analytics 2",
-      //   path: "/dashboard/analytics-2",
-      // },
-      // {
-      //   name: "CRM 1",
-      //   path: "/dashboard/crm",
-      // },
-      // {
-      //   name: "CRM 2",
-      //   path: "/dashboard/crm-2",
-      // },
-      // {
-      //   name: "Sales 1",
-      //   path: "/dashboard/sales",
-      // },
-      // {
-      //   name: "Sales 2",
-      //   path: "/dashboard/sales-2",
-      // },
-      // {
-      //   name: "Finance 1",
-      //   path: "/dashboard/finance",
-      // },
-      // {
-      //   name: "Finance 2",
-      //   path: "/dashboard/finance-2",
-      // },
-      // {
-      //   name: "Ecommerce",
-      //   path: "/dashboard/ecommerce",
-      // },
-      // {
-      //   name: "Logistics",
-      //   path: "/dashboard/logistics",
-      // },
-      // {
-      //   name: "Marketing",
-      //   path: "/dashboard/marketing",
-      // },
-      // {
-      //   name: "LMS",
-      //   path: "/dashboard/learning-management",
-      // },
-      // {
-      //   name: "Job Management",
-      //   path: "/dashboard/job-management",
-      // },
-    ],
+    path: "/dashboard",
+    // children: [
+    // {
+    //   name: "Dashboard",
+    // },
+    // {
+    //   name: "Analytics 2",
+    //   path: "/dashboard/analytics-2",
+    // },
+    // {
+    //   name: "CRM 1",
+    //   path: "/dashboard/crm",
+    // },
+    // {
+    //   name: "CRM 2",
+    //   path: "/dashboard/crm-2",
+    // },
+    // {
+    //   name: "Sales 1",
+    //   path: "/dashboard/sales",
+    // },
+    // {
+    //   name: "Sales 2",
+    //   path: "/dashboard/sales-2",
+    // },
+    // {
+    //   name: "Finance 1",
+    //   path: "/dashboard/finance",
+    // },
+    // {
+    //   name: "Finance 2",
+    //   path: "/dashboard/finance-2",
+    // },
+    // {
+    //   name: "Ecommerce",
+    //   path: "/dashboard/ecommerce",
+    // },
+    // {
+    //   name: "Logistics",
+    //   path: "/dashboard/logistics",
+    // },
+    // {
+    //   name: "Marketing",
+    //   path: "/dashboard/marketing",
+    // },
+    // {
+    //   name: "LMS",
+    //   path: "/dashboard/learning-management",
+    // },
+    // {
+    //   name: "Job Management",
+    //   path: "/dashboard/job-management",
+    // },
+    // ],
   },
+
   {
-    name: "Profile",
-    Icon: duotone.UserProfile,
-    path: "/dashboard/profile",
-  },
-  {
-    name: "Account",
-    Icon: duotone.Accounts,
-    path: "/dashboard/account",
-  },
-  {
-    name: "Users",
+    name: "Patients",
     Icon: duotone.UserList,
     children: [
       {
-        name: "Add User",
+        name: "Add Patient",
         path: "/dashboard/add-patient",
       },
       {
-        name: "User List 1",
+        name: "Patient List",
         path: "/dashboard/patient-list",
       },
       {
-        name: "User Grid 1",
-        path: "/dashboard/user-grid",
+        name: "Patient Grid List",
+        path: "/dashboard/patient-grid-list",
       },
-      {
-        name: "User List 2",
-        path: "/dashboard/patient-list-2",
-      },
-      {
-        name: "User Grid 2",
-        path: "/dashboard/user-grid-2",
-      },
+      // {
+      //   name: "User List 2",
+      //   path: "/dashboard/patient-list-2",
+      // },
+      // {
+      //   name: "User Grid 2",
+      //   path: "/dashboard/user-grid-2",
+      // },
     ],
   },
   {
@@ -195,9 +186,37 @@ export const navigation = [
   //   path: "/dashboard/todo-list",
   // },
   {
-    name: "Chats",
+    name: "Call History",
     Icon: duotone.Chat,
-    path: "/dashboard/chat",
+    path: "/dashboard/call-history",
+  },
+  {
+    name: "Train Bot",
+    Icon: duotone.Pages,
+    children: [
+      {
+        name: "Media",
+        path: "/dashboard/media",
+      },
+      {
+        name: "Instruction",
+        path: "/dashboard/instruction",
+      },
+      {
+        name: "Life History",
+        path: "/dashboard/life-history",
+      },
+    ],
+  },
+  {
+    name: "Profile",
+    Icon: duotone.UserProfile,
+    path: "/dashboard/profile",
+  },
+  {
+    name: "Account",
+    Icon: duotone.Accounts,
+    path: "/dashboard/account",
   },
   // {
   //   name: "Email",
@@ -275,7 +294,7 @@ export const navigation = [
   //     },
   //     {
   //       name: "Create Ticket",
-  //       path: "/dashboard/create-ticket",
+  //       path: "/dashboard/media",
   //     },
   //     {
   //       name: "File Manager",

@@ -29,6 +29,10 @@ import { FlexBetween, FlexBox } from "@/components/flexbox";
 import Twitter from "@/icons/social/Twitter";
 import Facebook from "@/icons/social/Facebook";
 import GoogleIcon from "@/icons/GoogleIcon";
+import { loginUser } from "../../../api/axiosApis/post";
+import { isSuccessResp } from "../../../api/base";
+import { useNavigate } from "react-router-dom";
+import { setSession } from "../../../contexts/jwtContext";
 
 // Styled Component
 const StyledButton = styled(ButtonBase)(({ theme }) => ({
@@ -39,8 +43,8 @@ const StyledButton = styled(ButtonBase)(({ theme }) => ({
 
 export default function LoginPageView() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInWithEmail, signInWithGoogle } = useAuth();
-
+  const { signInWithEmail, createUserWithEmail, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
   const handleGoogle = async () => {
     await signInWithGoogle();
   };
@@ -78,7 +82,19 @@ export default function LoginPageView() {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        await signInWithEmail(values.email, values.password);
+        await loginUser({
+          username: values.username,
+          email: values.email,
+          password: values.password,
+        }).then(async (res) => {
+          if (isSuccessResp(res.status)) {
+            localStorage.setItem(
+              "authUser",
+              JSON.stringify({ ...res?.data?.data })
+            );
+            await createUserWithEmail(values.email, values.password);
+          }
+        });
       } catch (error) {
         console.log(error);
       }
@@ -88,7 +104,9 @@ export default function LoginPageView() {
   return (
     <Layout login>
       <Box maxWidth={550} p={4}>
-        <H5 fontSize={{ sm: 30, xs: 25 }} mb={6}>Sign In</H5>
+        <H5 fontSize={{ sm: 30, xs: 25 }} mb={6}>
+          Sign In
+        </H5>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {/* Username Field */}
@@ -113,7 +131,10 @@ export default function LoginPageView() {
                 name="email"
                 onBlur={handleBlur}
                 value={values.email}
-                onChange={handleChange}
+                onChange={(e) => {
+                  e.target.value = e.target.value?.toLowerCase();
+                  handleChange(e);
+                }}
                 helperText={touched.email && errors.email}
                 error={Boolean(touched.email && errors.email)}
               />
