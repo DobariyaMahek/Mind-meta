@@ -1,11 +1,12 @@
-import React from 'react'; // MUI
+import React from "react"; // MUI
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Popover from '@mui/material/Popover'; // CUSTOM COMPONENT
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import Popover from "@mui/material/Popover"; // CUSTOM COMPONENT
 
-import { H4 } from '@/components/typography'; // ===================================================================
+import { H4 } from "@/components/typography"; // ===================================================================
+import { useNavigate } from "react-router-dom";
 
 // ===================================================================
 export default function PopoverLayout({
@@ -16,32 +17,50 @@ export default function PopoverLayout({
   anchorRef,
   popoverOpen,
   popoverClose,
-  hiddenViewButton
+  hiddenViewButton,
 }) {
-  return <Popover open={popoverOpen} onClose={popoverClose} anchorEl={anchorRef.current} anchorOrigin={{
-    horizontal: 'left',
-    vertical: 'bottom'
-  }} slotProps={{
-    paper: {
-      sx: {
-        width: '100%',
-        padding: '0.5rem 0',
-        minWidth: minWidth || 250,
-        maxWidth: maxWidth || 375
-      }
-    }
-  }}>
+  const navigate = useNavigate();
+  return (
+    <Popover
+      open={popoverOpen}
+      onClose={popoverClose}
+      anchorEl={anchorRef.current}
+      anchorOrigin={{
+        horizontal: "left",
+        vertical: "bottom",
+      }}
+      slotProps={{
+        paper: {
+          sx: {
+            width: "100%",
+            padding: "0.5rem 0",
+            minWidth: minWidth || 250,
+            maxWidth: maxWidth || 375,
+          },
+        },
+      }}
+    >
       <H4 fontSize={16} fontWeight="500" p={2} pt={1.5}>
-        {title || 'Notifications'}
+        {title || "Notifications"}
       </H4>
       <Divider />
 
       {children}
 
-      {!hiddenViewButton ? <Box p={1} pb={0.5}>
-          <Button variant="text" fullWidth disableRipple>
+      {!hiddenViewButton ? (
+        <Box p={1} pb={0.5}>
+          <Button
+            variant="text"
+            fullWidth
+            disableRipple
+            onClick={() => {
+              navigate("/dashboard/account?tab=Notifications");
+            }}
+          >
             View all Notifications
           </Button>
-        </Box> : null}
-    </Popover>;
+        </Box>
+      ) : null}
+    </Popover>
+  );
 }

@@ -43,7 +43,7 @@ export default function InstructionPageView() {
     if (event.key === "Enter" && event.target.value.trim()) {
       event.preventDefault();
       setTagsList((prevTags) => [...prevTags, event.target.value]);
-      event.target.value = ""; // Clear input after adding
+      formik.setFieldValue("tags", "");
     }
   };
 

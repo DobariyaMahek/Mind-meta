@@ -1,36 +1,44 @@
-import { useDropzone } from 'react-dropzone'; // CUSTOM COMPONENTS
+import { useDropzone } from "react-dropzone";
+import { useState } from "react";
+import { H6, Paragraph } from "@/components/typography";
+import UploadOnCloud from "@/icons/UploadOnCloud";
+import { RootStyle } from "./styles";
 
-import { H6, Paragraph } from '@/components/typography'; // CUSTOM ICON COMPONENT
+export default function DropZone({ onDrop, accept }) {
+  const [error, setError] = useState(null);
 
-import UploadOnCloud from '@/icons/UploadOnCloud'; // STYLED COMPONENT
-
-import { RootStyle } from './styles'; // =======================================================================
-
-// =======================================================================
-export default function DropZone({
-  onDrop
-}) {
-  const {
-    getRootProps,
-    getInputProps
-  } = useDropzone({
-    accept: {
-      'image/*': ['.png', '.gif', '.jpeg', '.jpg']
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: accept ? { [accept]: [] } : {}, // Dynamically set the accepted file types
+    onDrop: (acceptedFiles, rejectedFiles) => {
+      if (rejectedFiles.length > 0) {
+        setError(`Please upload only ${accept.split("/")[0]} files.`);
+        return;
+      }
+      setError(null); // Clear any existing error
+      onDrop(acceptedFiles); // Pass the accepted files to the parent component
     },
-    onDrop
   });
-  return <RootStyle {...getRootProps({
-    className: 'dropzone'
-  })}>
-      <UploadOnCloud sx={{
-      fontSize: 38,
-      color: 'text.secondary'
-    }} />
-      <Paragraph color="text.secondary">Drop your images here or</Paragraph>
-      <H6 fontSize={16} color="primary.main">
-        Select click to browse
-      </H6>
 
-      <input {...getInputProps()} placeholder="Select click to browse" />
-    </RootStyle>;
+  return (
+    <RootStyle {...getRootProps({ className: "dropzone" })}>
+      <UploadOnCloud
+        sx={{
+          fontSize: 38,
+          color: "text.secondary",
+        }}
+      />
+      <Paragraph color="text.secondary">Drop your files here or</Paragraph>
+      <H6 fontSize={16} color="primary.main">
+        Click to browse
+      </H6>
+      <input {...getInputProps()} placeholder="Click to browse" />
+
+      {/* Display error message */}
+      {error && (
+        <Paragraph color="error" mt={1}>
+          {error}
+        </Paragraph>
+      )}
+    </RootStyle>
+  );
 }

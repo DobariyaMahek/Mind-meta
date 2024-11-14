@@ -100,7 +100,7 @@ export default function AddNewUserPageView() {
     <div className="pt-2 pb-4">
       <Grid container spacing={3}>
         <Grid size={{ md: 4, xs: 12 }}>
-          <StyledCard>
+          <StyledCard style={{ height: "100%", justifyContent: "center" }}>
             <ButtonWrapper>
               <UploadButton>
                 <label htmlFor="upload-btn">
@@ -366,7 +366,7 @@ export default function AddNewUserPageView() {
               </Grid>
             </form>
           </Card>
-          <Card className="p-3" sx={{ mt: 3 }}>
+          {/* <Card className="p-3" sx={{ mt: 3 }}>
             <Grid
               size={12}
               container
@@ -383,18 +383,128 @@ export default function AddNewUserPageView() {
 
             <div className="family-information">
               <div className="family-info-box">
-                <p>Relation: <span>Father</span></p>
-                <p>Name: <span></span></p>
-                <p>Email: <span></span></p>
-                <p>Date of Birth: <span></span></p>
-                <p>Gender: <span></span></p>
+                <p>
+                  Relation: <span>Father</span>
+                </p>
+                <p>
+                  Name: <span></span>
+                </p>
+                <p>
+                  Email: <span></span>
+                </p>
+                <p>
+                  Date of Birth: <span></span>
+                </p>
+                <p>
+                  Gender: <span></span>
+                </p>
               </div>
             </div>
-          </Card>
+          </Card> */}
 
           {/* add family member modal */}
           {/* <AddFamilyMember /> */}
 
+          {/* <FlexBox
+            flexWrap="wrap"
+            gap={2}
+            sx={{
+              my: 3,
+            }}
+          >
+            <Button type="submit" variant="contained">
+              Save
+            </Button>
+
+            <Button variant="outlined" color="secondary">
+              Clear
+            </Button>
+          </FlexBox> */}
+        </Grid>
+        <Grid size={{ md: 12, xs: 12 }}>
+          <Card className="p-3">
+            <Grid
+              size={12}
+              container
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ pb: 2 }}
+            >
+              <span>Family Information</span>
+              <Button type="submit" variant="contained">
+                Add Family Member
+              </Button>
+            </Grid>
+            <Divider />
+
+            <div className="family-information">
+            {/* <div className="family-information family-information-light"> */}
+              <div className="family-info-box">
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Relation <b>:</b>
+                  </p>
+                  <span>Father</span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Name <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Email <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Date of Birth <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Gender <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+              </div>
+              <div className="family-info-box">
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Relation <b>:</b>
+                  </p>
+                  <span>Father</span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Name <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Email <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Date of Birth <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+                <div className="family-info-box-text-alignment">
+                  <p>
+                    Gender <b>:</b>
+                  </p>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </Card>
           <FlexBox
             flexWrap="wrap"
             gap={2}

@@ -1,55 +1,87 @@
-import { Fragment, useState } from 'react'; // MUI
+import { Fragment, useEffect, useState } from "react"; // MUI
 
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid2';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid2";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // CUSTOM COMPONENTS
-import { H5 } from '@/components/typography';
-import FlexBox from '@/components/flexbox/FlexBox'; // CUSTOM PAGE SECTION COMPONENTS
+import { H5 } from "@/components/typography";
+import FlexBox from "@/components/flexbox/FlexBox"; // CUSTOM PAGE SECTION COMPONENTS
 
-import TabComponent from '@/page-sections/accounts'; // CUSTOM ICON COMPONENTS
+import TabComponent from "@/page-sections/accounts"; // CUSTOM ICON COMPONENTS
 
-import Apps from '@/icons/Apps';
-import Icons from '@/icons/account'; // STYLED COMPONENTS
+import Apps from "@/icons/Apps";
+import Icons from "@/icons/account"; // STYLED COMPONENTS
 
-import { StyledButton } from '../styles';
+import { StyledButton } from "../styles";
+import { useLocation, useSearchParams } from "react-router-dom";
 export default function AccountsPageView() {
+  const downMd = useMediaQuery((theme) => theme.breakpoints.down("md"));
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [active, setActive] = useState('Basic Information');
-  const downMd = useMediaQuery(theme => theme.breakpoints.down('md')); // HANDLE LIST ITEM ON CLICK
+  const [active, setActive] = useState("Basic Information");
 
-  const handleListItemBtn = name => () => {
+  const location = useLocation(); // Get the current location object
+  const [searchParams, setSearchParams] = useSearchParams();
+  const notificationId = searchParams.get("id");
+  // Function to update the active tab based on the URL query parameter
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab && tabList.some((item) => item.name === tab)) {
+      setActive(tab);
+    }
+  }, [location.pathname, searchParams]); // Depend on pathname and searchParams
+
+  // Update the URL query parameter and set active tab
+  const handleListItemBtn = (name) => () => {
     setActive(name);
     setOpenDrawer(false);
-  }; // SIDEBAR LIST CONTENT
 
-
-  const TabListContent = <FlexBox flexDirection="column">
-      {tabList.map(({
-      id,
-      name,
-      Icon
-    }) => <StyledButton key={id} variant="text" startIcon={<Icon />} active={active === name} onClick={handleListItemBtn(name)}>
+    // Update the query parameter without reloading the page
+    setSearchParams({ tab: name });
+  };
+  const TabListContent = (
+    <FlexBox flexDirection="column">
+      {tabList.map(({ id, name, Icon }) => (
+        <StyledButton
+          key={id}
+          variant="text"
+          startIcon={<Icon />}
+          active={active === name}
+          onClick={handleListItemBtn(name)}
+        >
           {name}
-        </StyledButton>)}
-    </FlexBox>;
-  return <div className="pt-2 pb-4">
+        </StyledButton>
+      ))}
+    </FlexBox>
+  );
+  return (
+    <div className="pt-2 pb-4">
       <Grid container spacing={3}>
-        <Grid size={{
-        md: 3,
-        xs: 12
-      }}>
-          {downMd ? <Fragment>
-              <FlexBox alignItems="center" gap={1} onClick={() => setOpenDrawer(true)}>
-                <IconButton sx={{
-              padding: 0
-            }}>
-                  <Apps sx={{
-                color: 'text.primary'
-              }} />
+        <Grid
+          size={{
+            md: 3,
+            xs: 12,
+          }}
+        >
+          {downMd ? (
+            <Fragment>
+              <FlexBox
+                alignItems="center"
+                gap={1}
+                onClick={() => setOpenDrawer(true)}
+              >
+                <IconButton
+                  sx={{
+                    padding: 0,
+                  }}
+                >
+                  <Apps
+                    sx={{
+                      color: "text.primary",
+                    }}
+                  />
                 </IconButton>
 
                 <H5 fontSize={16}>More</H5>
@@ -58,17 +90,31 @@ export default function AccountsPageView() {
               <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
                 <Box padding={1}>{TabListContent}</Box>
               </Drawer>
-            </Fragment> : <Card sx={{
-          p: '1rem 0'
-        }}>{TabListContent}</Card>}
+            </Fragment>
+          ) : (
+            <Card
+              sx={{
+                p: "1rem 0",
+              }}
+            >
+              {TabListContent}
+            </Card>
+          )}
         </Grid>
 
-        <Grid size={{
-        md: 9,
-        xs: 12
-      }}>
+        <Grid
+          size={{
+            md: 9,
+            xs: 12,
+          }}
+        >
           {active === tabList[0].name && <TabComponent.BasicInformation />}
-          {active === tabList[1].name && <TabComponent.Notifications />}
+          {active === tabList[1].name && !notificationId && (
+            <TabComponent.Notifications />
+          )}
+          {active === tabList[1].name && notificationId && (
+            <TabComponent.NotificationsDetails />
+          )}
           {/* {active === tabList[2].name && <TabComponent.Password />}
           {active === tabList[3].name && <TabComponent.Preferences />}
           {active === tabList[4].name && <TabComponent.RecentDevices />}
@@ -82,7 +128,8 @@ export default function AccountsPageView() {
           {active === tabList[12].name && <TabComponent.DeleteAccount />} */}
         </Grid>
       </Grid>
-    </div>;
+    </div>
+  );
 }
 const tabList = [
   {
@@ -95,6 +142,11 @@ const tabList = [
     name: "Notifications",
     Icon: Icons.NotificationOutlined,
   },
+  // {
+  //   id: 3,
+  //   name: "Notification Details",
+  //   Icon: Icons.NotificationOutlined,
+  // },
   // {
   //   id: 3,
   //   name: "Preferences",

@@ -21,7 +21,7 @@ export default function ChatItem(props) {
   return (
     <Wrapper>
       {/* <Avatar src={image} /> */}
-      <div className="profile-icon">A</div>
+      <div className="profile-icon">{name?.charAt(0)?.toUpperCase()}</div>
 
       <div className="chat-info">
         <FlexBetween>

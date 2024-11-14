@@ -11,6 +11,7 @@ import SocialAccounts from './social-accounts';
 import BasicInformation from './basic-information';
 import ConnectedAccounts from './connected-accounts';
 import TwoStepVerification from './two-step-verification';
+import NotificationsDetails from "./notifications/NotificationsDetails";
 const Tabs = {
   ApiKeys,
   Billing,
@@ -24,6 +25,7 @@ const Tabs = {
   SocialAccounts,
   BasicInformation,
   ConnectedAccounts,
-  TwoStepVerification
+  TwoStepVerification,
+  NotificationsDetails,
 };
 export default Tabs;

@@ -32,7 +32,45 @@ export default function ProductViewCard() {
       >
         <H6 fontSize={16}>Call Details</H6>
         <div className="call-details">
+        {/* <div className="call-details call-details-box-light"> */}
           <div className="call-details-box">
+            <div className="call-details-box-text-alignment">
+              <p>
+                Title <b>:</b>
+              </p>
+              <span>Alen</span>
+            </div>
+            <div className="call-details-box-text-alignment">
+              <p>
+                Patient Name <b>:</b>
+              </p>
+              <span></span>
+            </div>
+            <div className="call-details-box-text-alignment">
+              <p>
+                Call Time <b>:</b>
+              </p>
+              <span></span>
+            </div>
+            <div className="call-details-box-text-alignment">
+              <p>
+                Call Duration <b>:</b>
+              </p>
+              <span></span>
+            </div>
+            <div className="call-details-box-text-alignment">
+              <p>
+                Description <b>:</b>
+              </p>
+              <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consequuntur aliquam facere expedita beatae quibusdam delectus
+                officiis, quidem adipisci nobis earum cum labore in inventore.
+                Vitae iure ullam quis sed deleniti.
+              </span>
+            </div>
+          </div>
+          {/* <div className="call-details-box">
             <p>
               Title: <span>Alen</span>
             </p>
@@ -48,24 +86,7 @@ export default function ProductViewCard() {
             <p>
               Description: <span></span>
             </p>
-          </div>
-          <div className="call-details-box">
-            <p>
-              Title: <span>Alen</span>
-            </p>
-            <p>
-              Patient Name: <span></span>
-            </p>
-            <p>
-              Call Time: <span></span>
-            </p>
-            <p>
-              Call Duration: <span></span>
-            </p>
-            <p>
-              Description: <span></span>
-            </p>
-          </div>
+          </div> */}
         </div>
       </Card>
 

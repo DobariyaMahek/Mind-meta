@@ -44,6 +44,8 @@
   align-items: center;
   margin: 34px 0 47px;
   width: 100%;
+  position: relative;
+  z-index: 9;
 }
 .callmodel-main-box-pera p {
   font-size: 16px;
@@ -59,6 +61,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   width: 100%;
+  position: relative;
+  z-index: 9;
 }
 
 .callmodel-main-box-grd-box {
@@ -113,6 +117,8 @@
   justify-content: center;
   align-items: center;
   margin: 0 0 15px 0;
+  position: relative;
+  z-index: 9;
 }
 
 .calling-person-div .calling-person-name p {
@@ -133,6 +139,8 @@
   align-items: center;
   padding: 4px 6px;
   box-shadow: 0px 2px 13px 0px #00000026;
+  position: relative;
+  z-index: 9;
 }
 .calling-person-time span {
   font-size: 12px;
@@ -166,6 +174,8 @@
   border-radius: 50%;
   background: #9747ff1a;
   margin: 10px auto 3px auto;
+  position: relative;
+  z-index: 9;
 }
 
 .calling-person-active-inner-dot {
@@ -264,16 +274,17 @@
 #canvas {
   display: block;
   margin: 20px auto 0;
-  border-bottom: 2px solid #9C27B0;
+  border-bottom: 2px solid #9c27b0;
 }
 .voice-wave-canvas {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   z-index: 0;
+  border-radius: 50%;
 }
 
 .calling-person-div-with-ring-image {
@@ -293,4 +304,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.callmodel-main-dark .callmodel-main-box {
+  background-color: #1f2937;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 6px;
+}
+
+.callmodel-main-dark .callmodel-main-box .calling-person-active-dot {
+  background: #6b7280;
+}
+
+.callmodel-main-dark .callmodel-main-box .calling-person-time span {
+  color: #000;
+}
+.callmodel-main-dark .callmodel-main-box .callmodel-main-box-pera p {
+  color: #fff;
+}
+.callmodel-main-dark .callmodel-main-box .callmodel-main-box-grd-box {
+  background: rgba(55, 65, 81, 0.85);
+}
+
+.callmodel-main-dark .callmodel-main-box .callmodel-main-box-grd-box h2 {
+  color: #fff;
+}
+.callmodel-main-dark .callmodel-main-box .callmodel-main-box-grd-box p {
+  color: #fff;
+}
+.callmodel-main-dark .callmodel-main-box .calling-person-name p {
+  color: #fff;
 }

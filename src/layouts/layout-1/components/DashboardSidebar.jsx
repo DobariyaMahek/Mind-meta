@@ -28,13 +28,18 @@ export default function DashboardSidebar() {
       <FlexBetween padding="1.5rem 1rem .5rem 1.8rem" height={TOP_HEADER_AREA}>
         {/* LOGO */}
         <Link href="/dashboard">
-          <Box
-            component="img"
-            src="/static/logo/logo-svg.svg"
-            alt="logo"
-            width={30}
-          />
-          {!COMPACT ? <h2>MIND META AI</h2> : null}
+          <FlexBetween gap="8px">
+            <Box
+              component="img"
+              src="/static/logo/logo-svg.svg"
+              alt="logo"
+              width={30}
+            />
+            <div className="dashboard-sidebar-logo-text">
+              {!COMPACT ? <h2>MIND META AI</h2> : null}
+              {!COMPACT ? <p>Family Member</p> : null}
+            </div>
+          </FlexBetween>
         </Link>
 
         {/* SIDEBAR COLLAPSE BUTTON */}
